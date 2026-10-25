@@ -56,6 +56,25 @@ pip install pycozmo pygame
 
 Next time you only need steps 1–3. There's no need to reinstall.
 
+## Optional: Terminal shortcut
+
+Instead of typing three commands each time, you can add a shortcut so that typing `Cozmo-Dualsense` in Terminal starts the script. On macOS the default shell is zsh, so add it to `~/.zshrc`:
+
+```bash
+cat >> ~/.zshrc << 'EOF'
+alias Cozmo-Dualsense='(cd ~/cozmo-dualsense && source env/bin/activate && python3 cozmo_dualsense.py)'
+alias cozmo-dualsense='Cozmo-Dualsense'
+EOF
+source ~/.zshrc
+```
+
+Now you can start the project from any Terminal window by typing `Cozmo-Dualsense` (or `cozmo-dualsense`; Terminal commands are case-sensitive, so both are included).
+
+- If you cloned the repo somewhere other than `~/cozmo-dualsense`, or named your virtual environment something other than `env`, change the path in the alias to match.
+- The command runs in a subshell, so it won't change your current folder or leave the virtual environment active afterwards.
+- You still need to connect the DualSense, turn on Cozmo, and join his Wi-Fi first.
+- If you see "command not found" in a window that was already open, run `source ~/.zshrc` there or open a new Terminal window.
+
 ## Troubleshooting
 
 **"No controller found."** Make sure the DualSense is connected in Bluetooth settings before you start the script.
